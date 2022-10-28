@@ -1,21 +1,5 @@
 "use strict";
 
-// const mountainData = document.getElementById("mountainInformation");
-// const tBody = document.getElementById("tableBody");
-
-
-// function loadSearchType() {
-//   mountainData.innerHTML = "";
-//   let option = new Option("select...", "");
-//   mountainData.appendChild(option);
-// }
-
-// function loadTableBody() {
-//   let selectValue = mountainData.value;
-// }
-
-"use strict";
-
 const mountainField = document.getElementById("mountainsField");
 const cardSection = document.getElementById("card-section");
 
@@ -24,7 +8,7 @@ function loadMountSelect() {
   let option = new Option("Select...", " ");
   mountainField.appendChild(option);
   mountainsArray.forEach((mountain) => {
-    let newOption = new Option(mountain.name, mountain.name);
+   let newOption = new Option(mountain.name, mountain.name);
     mountainField.appendChild(newOption);
   });
 }
@@ -51,23 +35,22 @@ function buildMountainCard(section, mountain) {
   section.appendChild(colDiv);
   colDiv.appendChild(div);
 
-  //create image
+  
   let cardImg = document.createElement("img");
   cardImg.className = "card-img-top";
   cardImg.alt = mountain.name;
-  cardImg.src = "image" + mountain.img;
+  cardImg.src = "images/" + mountain.img;
 
-  //create the title
   let cardTitle = document.createElement("h5");
   cardTitle.className = "card-title";
   cardTitle.innerText = mountain.name;
-  //add the description
+  
   let desc = document.createElement("p");
   desc.innerText = mountain.desc;
-  //add the elevation
+  
   let elevation = document.createElement("p");
   elevation.innerText = `${mountain.elevation} ft`;
-  //add additional info
+  
   let addInfo = document.createElement("p");
   addInfo.innerText = `Effort: ${mountain.effort}
     Coordinates: ${mountain.coords.lat}, ${mountain.coords.lng}`;
