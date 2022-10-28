@@ -12,29 +12,61 @@
       crossorigin="anonymous"
     />
   </head>
-
   <style>
-    body {
-      margin: 10px;
+    h1 {
+      font-size: 300%;
+      font-style: oblique;
+      text-align: center;
+      background-image: url("./enjoy-the-outdoors/images/kostiantyn-vierkieiev-tHKHJgQtzek-unsplash (1).jpg");
     }
+    h2,
+    label,
+    table {
+      margin: 10px;
+      border: 2px;
+      font-weight: bold;
+      font-style: oblique;
+      font-size: 100%;
+    }
+
     img {
-      margin-top: 10px;
+      background-size: cover;
+      height: 20em;
+      width: 100em;
+      background-position: center;
     }
   </style>
 
   <body>
+    <h1>Parks</h1>
     <div>
-      <h1>Parks Information</h1>
-      <input type="radio" class="" name="select" id="byState" />
-      <label class="" for="btnradio">By State</label>
+      <img
+        src="./enjoy-the-outdoors/images/kostiantyn-vierkieiev-tHKHJgQtzek-unsplash (1).jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <h2>Parks Information :</h2>
+          <input
+            type="radio"
+            class="navbar navbar-dark"
+            name="select"
+            id="byState"
+          />
+          <label class="" for="btnradio">By State</label>
 
-      <input type="radio" class="" name="select" id="byType" />
-      <label class="" for="btnradio">By Type</label>
+          <input type="radio" class="" name="select" id="byType" />
+          <label class="navbar-dark" for="btnradio">By Type</label>
 
-      <label for="parkInformation">Parks</label>
-      <select name="parkInformation" id="parkInformation">
-        <option value="1">Select Parks...</option>
-      </select>
+          <label for="parkInformation">Parks</label>
+          <select name="parkInformation" id="parkInformation">
+            <option value="1">Select Parks...</option>
+          </select>
+        </a>
+      </div>
     </div>
 
     <table class="table">

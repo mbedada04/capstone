@@ -64,7 +64,7 @@ function buildParkRow(tableBody, nationalPark) {
   cell6.innerText = nationalPark.Phone;
 
   let cell7 = row.insertCell(6);
-  if(nationalPark.Visit){
+  if (nationalPark.Visit) {
     const a = document.createElement("a");
     let link = document.createTextNode(nationalPark.Visit);
     a.appendChild(link);

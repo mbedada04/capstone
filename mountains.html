@@ -1,31 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mountains</title>
-</head>
+  </head>
 
- <style>
-        body {
-            margin: 10px;
-        }
-        img {
-            margin-top: 10px;
-        }
-    </style>
-<body>
-     <h1>Mountains Information</h1>
-     <div>
-        <label for="mountainkInformation">Mountains Information</label>
-    <select name="mountainInformation" id="mountainInformation">
-      <option value="1">Select Parks...</option>
-    </select>
+  <style>
+    h1 {
+      margin: 10px;
+      border: 2px;
+      font-size: 300%;
+      font-style: oblique;
+      text-align: center;
+      background-image: url("./enjoy-the-outdoors/images/alex-turcu-aEXyyX3VCMg-unsplash.jpg");
+    }
+    label {
+      margin: 2px;
+      border: 2px;
+      font-weight: bold;
+      font-style: oblique;
+      font-size: 200%;
+    }
+    select,
+    table {
+      margin: 3px;
+      font-size: 100%;
+    }
+    img {
+      background-size: cover;
+      height: 20em;
+      width: 99em;
+      background-position: center;
+    }
+  </style>
+  <body>
+    <h1>Mountains Information</h1>
 
-<script src="./enjoy-the-outdoors/scripts/mountainData.js"></script>
-<script src="./enjoy-the-outdoors/scripts/locationData.js"></script>
-<script src=""></script>
+    <div>
+      <img
+        src="./enjoy-the-outdoors/images/alex-turcu-aEXyyX3VCMg-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div>
+      <label for="mountainkInformation">Mountains Info : </label>
+      <select name="mountainInformation" id="mountainInformation">
+        <option value="1">Select Mountains...</option>
+      </select>
+    </div>
 
-</body>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Elevation</th>
+          <th scope="col">Effort</th>
+          <th scope="col">Img</th>
+          <th scope="col">Desc</th>
+          <th scope="col">Coords</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <script src="./enjoy-the-outdoors/scripts/mountainData.js"></script>
+    <script src=""></script>
+  </body>
 </html>
