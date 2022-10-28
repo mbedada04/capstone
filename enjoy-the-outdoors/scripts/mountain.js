@@ -1,36 +1,105 @@
 "use strict";
 
-const mountainData = document.getElementById("mountainInformation");
-const tBody = document.getElementById("tableBody");
+// const mountainData = document.getElementById("mountainInformation");
+// const tBody = document.getElementById("tableBody");
 
 
-function loadSearchType() {
-  mountainData.innerHTML = "";
-  let option = new Option("select...", "");
-  mountainData.appendChild(option);
+// function loadSearchType() {
+//   mountainData.innerHTML = "";
+//   let option = new Option("select...", "");
+//   mountainData.appendChild(option);
+// }
+
+// function loadTableBody() {
+//   let selectValue = mountainData.value;
+// }
+
+"use strict";
+
+const mountainField = document.getElementById("mountainsField");
+const cardSection = document.getElementById("card-section");
+
+function loadMountSelect() {
+  mountainField.innerHTML = "";
+  let option = new Option("Select...", " ");
+  mountainField.appendChild(option);
+  mountainsArray.forEach((mountain) => {
+    let newOption = new Option(mountain.name, mountain.name);
+    mountainField.appendChild(newOption);
+  });
 }
 
-function loadTableBody() {
-  let selectValue = mountainData.value;
+function loadMountainInfo() {
+  let selectedValue = mountainField.value;
+  mountainsArray.forEach((mountain) => {
+    if (selectedValue === mountain.name) {
+      buildMountainCard(cardSection, mountain);
+    }
+  });
 }
 
-function buildmountainRow(tableBody, mountainData) {
-  let row = tableBody.insertRow(-1);
+function buildMountainCard(section, mountain) {
 
-  let cell1 = row.insertCell(0);
-  cell1.innerText = mountainData.Name;
+  let colDiv = document.createElement("div");
+  colDiv.className = "col";
 
-  let cell2 = row.insertCell(1);
-  cell2.innerText = mountainData.Elivation;
 
-  let cell3 = row.insertCell(2);
-  cell3.innerText = mountainData.Effort;
+  const div = document.createElement("div");
+  div.className = "card";
+  div.style = "width: 22em;";
 
-  let cell4 = row.insertCell(3);
-  cell4.innerText = mountainData.Img;
+  section.appendChild(colDiv);
+  colDiv.appendChild(div);
 
-  let cell5 = row.insertCell(4);
-  cell5.innerText = mountainDatak.Desc;
+  //create image
+  let cardImg = document.createElement("img");
+  cardImg.className = "card-img-top";
+  cardImg.alt = mountain.name;
+  cardImg.src = "image" + mountain.img;
 
-  let cell6 = row.insertCell(5);
-  cell6.innerText = mountainData.Coords;
+  //create the title
+  let cardTitle = document.createElement("h5");
+  cardTitle.className = "card-title";
+  cardTitle.innerText = mountain.name;
+  //add the description
+  let desc = document.createElement("p");
+  desc.innerText = mountain.desc;
+  //add the elevation
+  let elevation = document.createElement("p");
+  elevation.innerText = `${mountain.elevation} ft`;
+  //add additional info
+  let addInfo = document.createElement("p");
+  addInfo.innerText = `Effort: ${mountain.effort}
+    Coordinates: ${mountain.coords.lat}, ${mountain.coords.lng}`;
+ 
+
+  const divBody = document.createElement("div");
+  divBody.className = "card-body";
+  div.appendChild(cardImg);
+  div.appendChild(divBody);
+  divBody.append(cardTitle, desc, elevation, addInfo,);
+}
+
+function clearScreen() {
+  let cardSection = document.querySelector("#card-section");
+
+  let cards = document.querySelectorAll("#card-section .col");
+  cards.forEach((card) => cardSection.removeChild(card));
+}
+
+function displayMounts() {
+  mountainsArray.forEach((mountain) => {
+    buildMountainCard(cardSection, mountain);
+  });
+}
+
+window.onload = () => {
+  loadMountSelect();
+  mountainField.onchange = loadMountainInfo;
+  const clearBtn = document.getElementById("clearBtn");
+
+  clearBtn.onclick = clearScreen;
+  const displayAllMountsBtn = document.getElementById("displayAllMounts");
+
+  displayAllMountsBtn.onclick = displayMounts;
+};
